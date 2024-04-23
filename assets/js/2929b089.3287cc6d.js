@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkagility=self.webpackChunkagility||[]).push([[2912],{6491:a=>{a.exports=JSON.parse('{"label":"docusaurus","permalink":"/agility/blog/tags/docusaurus","allTagsPath":"/agility/blog/tags","count":4,"unlisted":false}')}}]);

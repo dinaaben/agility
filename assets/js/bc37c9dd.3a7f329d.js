@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkagility=self.webpackChunkagility||[]).push([[8700],{5712:e=>{e.exports=JSON.parse('{"permalink":"/agility/blog/tags/facebook","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

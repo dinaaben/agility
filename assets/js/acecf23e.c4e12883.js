@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkagility=self.webpackChunkagility||[]).push([[1903],{1912:l=>{l.exports=JSON.parse('{"blogBasePath":"/agility/blog","blogTitle":"Blog"}')}}]);
