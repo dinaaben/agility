@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'AGILITY',
-  tagline: 'DAGILITY is cool',
+  tagline: 'AGILITY is cool',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
