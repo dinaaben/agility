@@ -79,6 +79,12 @@ const config: Config = {
           position: 'left',
           label: 'API',
         },
+        {
+          type: 'docSidebar',
+          sidebarId: 'installation',
+          position: 'left',
+          label: 'Installation',
+        },
         //{to: '/api-webhooks', label: 'API', position: 'left'},
         //{to: '/blog', label: 'Blog', position: 'left'},
         {
