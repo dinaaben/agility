@@ -73,7 +73,7 @@ const config: Config = {
           label: 'Tutorial',
         },
         {
-          type: '',
+          type: 'docs',
           sidebarId: 'api',
           position: 'left',
           label: 'API',
