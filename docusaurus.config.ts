@@ -56,8 +56,16 @@ const config: Config = {
   ],
 
   themeConfig: {
+    announcementBar: {
+      id: 'support_us',
+      content:
+        'We have an announcement.',
+      backgroundColor: '#fafbfc',
+      textColor: '#091E42',
+      isCloseable: false,
+    },
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/agility-icon.png',
     navbar: {
       title: 'AGILITY',
       logo: {
@@ -66,17 +74,18 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
+          type: 'doc',
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'Tutorial',
         },
         {
-          type: 'docSidebar',
+          type: '',
           sidebarId: 'api',
           position: 'left',
           label: 'API',
         },
+        {to: '/api-webhooks', label: 'API', position: 'left'},
         //{to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/facebook/docusaurus',
