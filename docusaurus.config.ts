@@ -3,8 +3,8 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'AGILITY Docs',
-  tagline: 'Made by B-Yond',
+  title: 'AGILITY',
+  tagline: 'documentation',
   favicon: 'img/agility_icon.png',
 
   // Set the production url of your site here

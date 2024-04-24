@@ -23,7 +23,7 @@ const FeatureList: FeatureItem[] = [
     //Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Choose from the list of analyzed files. Advanced sort and filtering makes them easy to find .
+        Choose from the list of analyzed files. Advanced sort and filtering makes them easy to find.
       </>
     ),
   },
