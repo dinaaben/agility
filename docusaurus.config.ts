@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'AGILITY',
   tagline: 'Made by B-Yond',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/agility_icon.png',
 
   // Set the production url of your site here
   url: 'https://dinaaben.github.io',
