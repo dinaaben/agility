@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'AGILITY',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'Made by B-Yond',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
