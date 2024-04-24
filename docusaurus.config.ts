@@ -61,8 +61,8 @@ const config: Config = {
     navbar: {
       title: 'AGILITY',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/agility-icon.png',
+        alt: 'AGILITY Logo',
+        src: 'img/agility-icon.ico',
       },
       items: [
         {
