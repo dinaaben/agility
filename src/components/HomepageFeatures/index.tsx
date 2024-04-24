@@ -32,7 +32,7 @@ const FeatureList: FeatureItem[] = [
     //Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        View your high-level summary, then drill down to call flow details. View by sequence diagram, protocol, flow extraction, or view diagnostics or compare KPIs.
+        View your high-level summary, then drill down to call flow details. 
       </>
     ),
   },
