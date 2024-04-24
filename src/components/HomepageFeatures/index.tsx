@@ -14,7 +14,7 @@ const FeatureList: FeatureItem[] = [
     //Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Upload your PCAP file or select a previously uploaded file.
+        Upload your PCAP file or select a previously uploaded file and start analysis.
       </>
     ),
   },
@@ -23,7 +23,7 @@ const FeatureList: FeatureItem[] = [
     //Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Choose from the list of the files you’ve uploaded. Advanced sort and filtering makes your call flows easy to find .
+        Choose from the list of analyzed files. Advanced sort and filtering makes them easy to find .
       </>
     ),
   },
@@ -32,7 +32,7 @@ const FeatureList: FeatureItem[] = [
     //Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        View your high-level summary, then drill down to call flow details. 
+        View your high-level summary, then drill down to call flow details. View by sequence diagram, protocol, flow extraction, or view diagnostics or compare KPIs.
       </>
     ),
   },
