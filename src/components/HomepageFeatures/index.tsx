@@ -14,9 +14,7 @@ const FeatureList: FeatureItem[] = [
     //Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        AGILITY analyzes the information from network data capture files (PCAPs (packet captures)) into  actionable insights. 
-
-        To start a new analysis, you can upload your PCAP file, select a previously uploaded file, or run a mock analysis using a sample network data capture file.
+        Upload your PCAP file or select a previously uploaded file.
       </>
     ),
   },
