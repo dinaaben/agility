@@ -62,7 +62,7 @@ const config: Config = {
       title: 'AGILITY',
       logo: {
         alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        src: 'img/agility-icon.png',
       },
       items: [
         {
