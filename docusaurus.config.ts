@@ -56,14 +56,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    announcementBar: {
-      id: 'support_us',
-      content:
-        'We have an announcement.',
-      backgroundColor: '#fafbfc',
-      textColor: '#091E42',
-      isCloseable: false,
-    },
+    
     // Replace with your project's social card
     image: 'img/agility-icon.png',
     navbar: {
