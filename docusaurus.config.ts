@@ -74,7 +74,7 @@ const config: Config = {
       },
       items: [
         {
-          type: 'doc',
+          type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'Tutorial',
@@ -85,7 +85,7 @@ const config: Config = {
           position: 'left',
           label: 'API',
         },
-        {to: '/api-webhooks', label: 'API', position: 'left'},
+        //{to: '/api-webhooks', label: 'API', position: 'left'},
         //{to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/facebook/docusaurus',
