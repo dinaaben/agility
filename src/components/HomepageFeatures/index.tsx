@@ -10,32 +10,31 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'Load your PCAP files',
     //Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        AGILITY analyzes the information from network data capture files (PCAPs (packet captures)) into  actionable insights. 
+
+        To start a new analysis, you can upload your PCAP file, select a previously uploaded file, or run a mock analysis using a sample network data capture file.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Access your analyses',
     //Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Choose from the list of the files you’ve uploaded. Advanced sort and filtering makes your call flows easy to find .
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'View your results',
     //Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        View your high-level summary, then drill down to call flow details. 
       </>
     ),
   },
