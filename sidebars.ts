@@ -22,7 +22,12 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Tutorial',
-      items: ['tutorial-basics/create-a-document'],
+      items: ['tutorial-basics'],
+    },
+    {
+      type: 'category',
+      label: 'Analyze PCAP files',
+      items: ['Analyze PCAP files/start-a-new-analysis'],
     },
   ],
   api: [
