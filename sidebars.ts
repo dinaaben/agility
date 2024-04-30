@@ -22,7 +22,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Tutorial',
-      items: ['tutorial-basics'],
+      items: ['tutorial-basics/congratulations'],
     },
     {
       type: 'category',
