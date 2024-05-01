@@ -45,8 +45,8 @@ You must create reference sets before you run a comparative analysis.
 # Create a Reference set
 
 1.  Choose an existing analysis or run a new one. See
-    <https://nexiusocp.atlassian.net/wiki/spaces/AKB1/pages/3037659168/Access+your+analyses#View-Analyses>
-    or <https://nexiusocp.atlassian.net/wiki/x/IQEFrQ> for details.
+    Add link
+    or Add link.
 
 2.  From your High Level Summary, [choose the call
     flow](https://d.docs.live.net/wiki/spaces/AKB1/pages/3037560963/View+results+in+Call+Flow+Details)
@@ -62,8 +62,8 @@ You must create reference sets before you run a comparative analysis.
 To add additional call flows to your Reference set:
 
 1.  Choose an existing analysis or run a new one. See
-    <https://nexiusocp.atlassian.net/wiki/spaces/AKB1/pages/3037659168/Access+your+analyses#View-Analyses>
-    or <https://nexiusocp.atlassian.net/wiki/x/IQEFrQ> for details.
+    Add link
+    or Add link.
 
 2.  From your High Level Summary, [choose the call
     flow](https://d.docs.live.net/wiki/spaces/AKB1/pages/3037560963/View+results+in+Call+Flow+Details)
@@ -80,7 +80,7 @@ To add additional call flows to your Reference set:
 View and manage your references from the Reference page found in the
 main AGILITY menu.
 
-1.  Select **References** from the AGILITY main menu.\
+1.  Select **References** from the AGILITY main menu.
     The list of references opens and you can expand a reference to view
     the call flows it contains.
 
@@ -98,8 +98,8 @@ Deleting all call flows will remove the Reference set.
 # Run a comparison
 
 1.  Choose an existing analysis or run a new one. See
-    <https://nexiusocp.atlassian.net/wiki/spaces/AKB1/pages/3037659168/Access+your+analyses#View-Analyses>
-    or <https://nexiusocp.atlassian.net/wiki/x/IQEFrQ> for details.
+    Add link
+    or Add link.
 
 2.  From your High Level Summary, [choose the call
     flow](https://d.docs.live.net/wiki/spaces/AKB1/pages/3037560963/View+results+in+Call+Flow+Details)
