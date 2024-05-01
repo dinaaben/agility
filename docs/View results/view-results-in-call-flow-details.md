@@ -100,5 +100,5 @@ top of the Call Flow Details page.
 Select the arrow next to Classification to expand the section:
 
 To see more details about the error, select the
-[**[Diagnostics]{.underline}**
+[**[Diagnostics]**
 tab](https://d.docs.live.net/wiki/spaces/AKB1/pages/3037560989/Diagnostics+tab).
