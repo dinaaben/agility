@@ -28,54 +28,14 @@ The **Start a New Analysis** page opens.
 
 1.  Choose your analysis path:
 
-+----------------------+-----------------------------------------------+
-| **Upload New File**  | Upload a network data capture file:           |
-|                      |                                               |
-| AGILITY supports:    | 1.  You can upload a file to run an analysis  |
-|                      |     on the New File Uploads page.             |
-| -   pcap             |                                               |
-|                      |     1.  To upload a new network data capture  |
-| -   .pcapng          |         file for analysis, click **New        |
-|                      |         Upload**.                             |
-| -   .cap             |                                               |
-|                      |     2.  Select **Browse** or drag and drop    |
-| -   .zip             |         your files into the Upload File       |
-|                      |         panel.                                |
-| You can only upload  |                                               |
-| one file at a time.  | > Your file name will appear on the Upload    |
-|                      | > File panel.                                 |
-+----------------------+-----------------------------------------------+
-| **Select Existing    | To use previously uploaded network data       |
-| File(s)**            | capture files:                                |
-|                      |                                               |
-|                      | 1.  Click **Select Existing File**.           |
-|                      |                                               |
-|                      | a\) Search for the file by name.              |
-|                      |                                               |
-|                      | OR                                            |
-|                      |                                               |
-|                      | b\) Expand the folder and file drop-downs and |
-|                      | choose the desired file.                      |
-|                      |                                               |
-|                      | **2**. Check the box beside the desired       |
-|                      | sample file to select it for analysis.        |
-+----------------------+-----------------------------------------------+
-| **Preview an         | To run a mock analysis using a pre-uploaded   |
-| Analysis**           | sample file:                                  |
-|                      |                                               |
-|                      | 1.  Click **Choose Sample**.                  |
-|                      |                                               |
-|                      | 2.  Select your file:\                        |
-|                      |     **a)** Search for the file by name.       |
-|                      |                                               |
-|                      | > **b)** Expand the folder and file           |
-|                      | > drop-downs to choose the desired file.      |
-|                      |                                               |
-|                      | 3.  Check the box beside the desired sample   |
-|                      |     file to select it for analysis.           |
-+----------------------+-----------------------------------------------+
+|||
+| :- | :- |
+|<p>**Upload New File**</p><p>AGILITY supports:</p><p>·       pcap</p><p>·       .pcapng</p><p>·       .cap</p><p>·       .zip</p><p>You can only upload one file at a time.</p>|<p>Upload a network data capture file:</p><p>1\.     You can upload a file to run an analysis on the New File Uploads page.</p><p>1\.     To upload a new network data capture file for analysis, click **New Upload**.</p><p> </p><p>2\.     Select **Browse** or drag and drop your files into the Upload File panel.</p><p> </p><p>Your file name will appear on the Upload File panel.</p>|
+|**Select Existing File(s)**|<p>To use previously uploaded network data capture files:</p><p>1\.     Click **Select Existing File**.</p><p> </p><p>a) Search for the file by name.</p><p> </p><p>OR</p><p>b) Expand the folder and file drop-downs and choose the desired file.</p><p>**2**. Check the box beside the desired sample file to select it for analysis.</p>|
+|**Preview an Analysis**|<p>To run a mock analysis using a pre-uploaded sample file:</p><p>1\.     Click **Choose Sample**.</p><p> </p><p>2\.     Select your file:<br>**a)** Search for the file by name.</p><p> </p><p>**b)** Expand the folder and file drop-downs to choose the desired file.</p><p> </p><p>3\.     Check the box beside the desired sample file to select it for analysis.</p>|
 
-You\'ll be directed to the selected file upload page.
+You'll be directed to the selected file upload page.
+
 
 ## Select your service
 
@@ -107,6 +67,5 @@ analyze.
 
 The High-Level Summary opens.
 
- ![(blue star)](media/image1.tmp){width="0.16666666666666666in"
-height="0.16666666666666666in"} Next: A[ccess your
+ Next: [Access your
 analysis](https://d.docs.live.net/wiki/spaces/AKB1/pages/3037659168/Access+your+analyses).

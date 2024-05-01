@@ -29,12 +29,12 @@ To opt in or out of email notifications:
 1.  On the AGILITY homepage, select **Settings \>Notification
     Settings**.
 
-> ![](media/image1.tmp){width="4.875in" height="1.6666666666666667in"}
+> [insert image]
 
 2.  Select the **Personal Settings** toggle to give AGILITY consent to
     send alert messages.
 
-> ![](media/image2.tmp){width="4.875in" height="1.0833333333333333in"}
+> [insert image]
 
 # Update your Notifications List
 
@@ -50,21 +50,21 @@ To configure or update your Notifications List:
 1.  On the AGILITY homepage, select **Settings \> Notification
     Settings**.
 
-> ![](media/image1.tmp){width="4.875in" height="1.6666666666666667in"}
+> [insert image]
 >
 > The **Notifications Settings** page opens.
 
 2.  Click **+New User.**
 
-> ![](media/image3.tmp){width="4.0625in" height="2.2083333333333335in"}
+> [insert image]
 
 3.  Enter the intended recipient's email address.
 
-> ![](media/image4.tmp){width="3.9583333333333335in" height="1.4375in"}
+> [insert image]
 
 4.  Click the save icon.
 
-> ![](media/image5.tmp){width="3.9791666666666665in" height="1.46875in"}
+> [insert image]
 >
 > The recipient is added to your analysis notification distribution
 > list.
@@ -76,4 +76,4 @@ To configure or update your Notifications List:
 To remove recipients, select the delete icon next to the recipient's
 email address.
 
-![](media/image6.tmp){width="2.8020833333333335in" height="1.28125in"}
+[insert image]

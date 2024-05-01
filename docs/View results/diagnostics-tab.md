@@ -9,37 +9,18 @@ To use the Diagnostics tab:
 
 2.  Review the diagnostics.
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Column**                                                                                                                         **Description**
-  ---------------------------------------------------------------------------------------------------------------------------------- --------------------------------------------------------
-  **Result**                                                                                                                         The syntax version of the Root Cause identified by
-                                                                                                                                     AGILITY.
-
-  **Description**                                                                                                                    A more concise version of the Result with most of the
-                                                                                                                                     syntax removed.
-
-  **Network Element**                                                                                                                The Network Element on which the Root Cause issue
-                                                                                                                                     occurred.
-
-  **Interface**                                                                                                                      The network interface on which the Root Cause issue
-                                                                                                                                     occurred.
-
-  **Protocol**                                                                                                                       The Protocol on which the Root Cause error occurred.
-
-  **Error Code**                                                                                                                     The error code number extracted from the Root Cause
-                                                                                                                                     Result.
-
-  **Priority**                                                                                                                       A numerical value to help you identify the impact of the
-                                                                                                                                     error.
-
-  **Root Cause**                                                                                                                     The Root Cause Result allowing you to take remediate
-                                                                                                                                     action.
-
-  **Source**                                                                                                                         The source of the Root Cause definition and Error Code.
-
-  [**[Feedback]{.underline}**](https://nexiusocp.atlassian.net/wiki/spaces/AKB1/pages/3037560989/Diagnostics+tab#Provide-feedback)   An opportunity to provide your input regarding the
-                                                                                                                                     accuracy of each Root Cause analysis.
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|**Column**|**Description**|
+| :- | :- |
+|**Result**|The syntax version of the Root Cause identified by AGILITY.|
+|**Description**|A more concise version of the Result with most of the syntax removed.|
+|**Network Element**|The Network Element on which the Root Cause issue occurred.|
+|**Interface**|The network interface on which the Root Cause issue occurred.|
+|**Protocol**|The Protocol on which the Root Cause error occurred.|
+|**Error Code**|The error code number extracted from the Root Cause Result.|
+|**Priority**|A numerical value to help you identify the impact of the error.|
+|**Root Cause**|The Root Cause Result allowing you to take remediate action.|
+|**Source**|The source of the Root Cause definition and Error Code.|
+|[**Feedback**](https://nexiusocp.atlassian.net/wiki/spaces/AKB1/pages/3037560989/Diagnostics+tab#Provide-feedback)|An opportunity to provide your input regarding the accuracy of each Root Cause analysis.|
 
 ## Provide feedback
 
@@ -59,6 +40,5 @@ To provide feedback on a specific root cause listed in the
     2.  Thumbs down if you disagree with the root cause provided.\
         To de-select, select your choice again.
 
-![(blue star)](media/image1.tmp){width="0.16666666666666666in"
-height="0.16666666666666666in"}Next: View the [KPI Analysis
+View the [KPI Analysis
 tab](https://d.docs.live.net/wiki/spaces/AKB1/pages/3058008093/KPI+Analysis+tab).

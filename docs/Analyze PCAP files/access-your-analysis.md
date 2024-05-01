@@ -7,8 +7,7 @@
 
 To view your analyses, select **Analyses** from the navigation menu.
 
-![](media/image1.tmp){width="2.9722222222222223in"
-height="2.9305555555555554in"}
+[insert image]
 
 A list of analyses opens next to the Navigation menu.
 
@@ -25,69 +24,33 @@ To view the Analysis Details for any given analysis:
 
 Click on a file with the Completed label to view details.
 
-![](media/image2.tmp){width="4.875in" height="2.5625in"}
+[insert image]
 
 The High-Level Summary Page opens next to the My Analyses tab.
 
-![](media/image3.tmp){width="4.875in" height="4.395833333333333in"}
+[insert image]
 
 # View file upload/processing statuses
 
 You can view the status of your analysis files from the **My Analyses**
 tab.
 
-![](media/image4.tmp){width="4.875in" height="3.1319444444444446in"}
+[insert image]
 
 There are five file upload/processing statuses:
 
-+---------+------------------------------------------------------------+
-| **Proce | The Processing status indicates that the file(s) is still  |
-| ssing** | being processed.                                           |
-|         |                                                            |
-|         | ![](media/image5.tmp){width="2.6041666666666665in"         |
-|         | height="0.5833333333333334in"}                             |
-+---------+------------------------------------------------------------+
-| **Comp  | The Completed status indicates that your file has been     |
-| leted** | successfully processed and the analysis details are ready  |
-|         | for your review.                                           |
-|         |                                                            |
-|         | ![](media/image6.tmp){width="3.4375in"                     |
-|         | height="0.8819444444444444in"}                             |
-+---------+------------------------------------------------------------+
-| **F     | The failed status indicates that AGILITY could not process |
-| ailed** | your files due to file errors. The precise reason for each |
-|         | failure is provided in the UI. After reviewing the reason  |
-|         | for the failure, you can determine how to re-upload your   |
-|         | files and re-run the analysis.                             |
-|         |                                                            |
-|         | ![](media/image7.tmp){width="3.5277777777777777in"         |
-|         | height="0.8125in"}                                         |
-+---------+------------------------------------------------------------+
-| *       | The Failed with Warning status indicates that something    |
-| *Failed | went wrong during file processing. For example:            |
-| with    |                                                            |
-| Wa      | -   A prediction script error on our end                   |
-| rning** |                                                            |
-|         | -   Auto-detection detected the incorrect service          |
-|         |                                                            |
-|         | -   The user selected the incorrect service                |
-|         |                                                            |
-|         | -   We do not have a model that is compatible with the     |
-|         |     network captures that were uploaded                    |
-|         |                                                            |
-|         | ![](media/image8.tmp){width="3.4791666666666665in"         |
-|         | height="0.9166666666666666in"}                             |
-+---------+------------------------------------------------------------+
-| **High  | The High Priority icon highlights the analysis/analyses    |
-| Pri     | that contain failed call flows and, therefore, require     |
-| ority** | immediate attention.                                       |
-|         |                                                            |
-|         | ![](media/image9.tmp){width="4.076388888888889in"          |
-|         | height="0.7916666666666666in"}                             |
-+---------+------------------------------------------------------------+
+|||
+| :- | :- |
+|**Processing**|<p>The Processing status indicates that the file(s) is still being processed.</p><p></p>|
+|**Completed**|<p>The Completed status indicates that your file has been successfully processed and the analysis details are ready for your review.</p><p></p>|
+|**Failed**|<p>The failed status indicates that AGILITY could not process your files due to file errors. The precise reason for each failure is provided in the UI. After reviewing the reason for the failure, you can determine how to re-upload your files and re-run the analysis.</p><p></p>|
+|**Failed with Warning**|<p>The Failed with Warning status indicates that something went wrong during file processing. For example:</p><p>- A prediction script error on our end</p><p>- Auto-detection detected the incorrect service</p><p>- The user selected the incorrect service</p><p>- We do not have a model that is compatible with the network captures that were uploaded</p><p></p>|
+|**High Priority**|<p>The High Priority icon highlights the analysis/analyses that contain failed call flows and, therefore, require immediate attention.</p><p></p>|
+-----
 
-![(blue star)](media/image10.tmp){width="0.16666666666666666in"
-height="0.16666666666666666in"}Next: [Filter and sort your
-analyses](https://d.docs.live.net/wiki/spaces/AKB1/pages/3200450621/Filter+and+sort+analyses)
+
+Next: [Filter and sort your
+analyses]
 or View the [High Level
-Summary](https://d.docs.live.net/wiki/spaces/AKB1/pages/2909536753/View+your+High-Level+Summary).
+Summary].
+

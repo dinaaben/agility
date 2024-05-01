@@ -122,21 +122,9 @@ set are arranged from highest percentage match to lowest.
 Below the Similarity score, AGILITY displays more information about the
 call flows.
 
-  ---------------------------------------------------------------------------
-  **Information**   **Description**
-  ----------------- ---------------------------------------------------------
-  **Call Flow       Signature or identifier of the flow with key identifying
-  Info**            details and metrics that define each individual flow
-                    within the network, such as Flow type, File name, Time
-                    stamp, Duration, Protocols, and Interfaces.
-
-  **Network         Details about the network environment supporting various
-  Topology Info**   types of flows. It includes information on network
-                    topology, the type of mobile networks, and network
-                    configuration parameters such us ports and addresses.
-
-  **Messages Info** Detailed log and analysis of the signaling messages that
-                    are key to the establishment, maintenance, and
-                    termination of communication flows, such as Messages
-                    list, Response errors, SIP branch type, Message causes.
-  ---------------------------------------------------------------------------
+  |**Information**|**Description**|
+| :- | :- |
+  |  **Call Flow Info** |     Signature or identifier of the flow with key identifying details and metrics that define each individual flow within the network, such as Flow type, File name, Time stamp, Duration, Protocols, and Interfaces.
+  |**Network Topology Info**    |    Details about the network environment supporting various types of flows. It includes information on network topology, the type of mobile networks, and network configuration parameters such us ports and addresses.
+| **Messages Info** |Detailed log and analysis of the signaling messages that are key to the establishment, maintenance, and termination of communication flows, such as Messages list, Response errors, SIP branch type, Message causes.|
+  

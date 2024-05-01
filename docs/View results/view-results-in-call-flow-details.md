@@ -72,23 +72,12 @@ next to the Call Flow Details.
 
 Call flow result statuses:
 
-  ----------------------------------------------------------------------------
-  **Status**    **Description**
-  ------------- --------------------------------------------------------------
-  **Success**   If your call flow analysis has the Result Status **Success**,
-                the call flow was completed without any warnings or errors.
-
-  **Unknown**   If your call flow analysis has the Result Status **Unknown**,
-                there isn\'t enough information available to determine the
-                outcome of the call definitively.
-
-  **Failure**   If your call flow analysis has the Result Status **Failed**,
-                AGILITY detected (a) network failure(s) that require your
-                attention.
-
-  **Warning**   If your call flow analysis has the Result Status **Warning**,
-                the call succeeded overall, but there are certain elements,
-                conditions, or errors that should be noted or monitored.
+  |**Status** | **Description**|
+  |:-|:-|
+  |**Success**|   If your call flow analysis has the Result Status **Success**, the call flow was completed without any warnings or errors.|
+  |**Unknown** |  If your call flow analysis has the Result Status **Unknown**, there isn\'t enough information available to determine the outcome of the call definitively.|
+  |**Failure**  |  If your call flow analysis has the Result Status **Failed**, AGILITY detected (a) network failure(s) that require your attention. |
+  |**Warning** |  If your call flow analysis has the Result Status **Warning**, the call succeeded overall, but there are certain elements, conditions, or errors that should be noted or monitored.|
   ----------------------------------------------------------------------------
 
 # View Basic Call Flow Details information
