@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkagility=self.webpackChunkagility||[]).push([[9995],{3073:a=>{a.exports=JSON.parse('{"label":"facebook","permalink":"/agility/blog/tags/facebook","allTagsPath":"/agility/blog/tags","count":1,"unlisted":false}')}}]);

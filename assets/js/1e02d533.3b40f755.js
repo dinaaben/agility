@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkagility=self.webpackChunkagility||[]).push([[3260],{69:e=>{e.exports=JSON.parse('{"permalink":"/agility/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
