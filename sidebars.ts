@@ -30,7 +30,37 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Analyze PCAP files',
-      items: ['Analyze PCAP files/start-a-new-analysis'],
+      items: [
+        'Analyze PCAP files/supported-file-formats',
+        'Analyze PCAP files/start-a-new-analysis',
+        'Analyze PCAP files/access-your-analysis',
+        'Analyze PCAP files/filter-and-sort-analyses',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'View Results',
+      items: [
+        'View Results/view-your-high-level-summary',
+        {
+          type: 'category',
+          label: 'View results in Call Flow Details',
+          link: {
+            type: 'doc',
+            id: 'View Results/view-results-in-call-flow-details/view-results-in-call-flow-details',
+          },
+          items: [
+            'View Results/view-results-in-call-flow-details/procedure-details',
+          ],
+        },
+        'View Results/filter-call-flow-results',
+        'View Results/diagnostics-tab',
+        'View Results/flow-extractions-tab',
+        'View Results/protocol-level-analysis-tab',
+        'View Results/kpi-analysis-tab',
+        'View Results/provide-feedback',
+        'View Results/run-a-comparative-analysis',
+      ],
     },
   ],
   api: [
