@@ -47,10 +47,10 @@ const sidebars: SidebarsConfig = {
           label: 'View results in Call Flow Details',
           link: {
             type: 'doc',
-            id: 'View Results/view-results-in-call-flow-details/view-results-in-call-flow-details',
+            id: 'View results/view-results-in-call-flow-details/view-results-in-call-flow-details',
           },
           items: [
-            'View Results/view-results-in-call-flow-details/procedure-details',
+            'View results/view-results-in-call-flow-details/procedure-details',
           ],
         },
         'View results/filter-call-flow-results',
