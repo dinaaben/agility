@@ -22,7 +22,10 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Tutorial',
-      items: ['tutorial-basics/congratulations','create-a-blog-post' ],
+      items: [
+        'tutorial-basics/congratulations'
+        'tutorial-basics/create-a-blog-post'
+      ],
     },
     {
       type: 'category',
