@@ -37,6 +37,10 @@ const config: Config = {
         googleTagManager: {
           containerId: 'GTM-W5VCR3HW',
         },
+        gtag: {
+          trackingID: 'G-Z9GH37N5YW',
+          anonymizeIP: true,
+        },
         docs: {
           path: 'docs',
           sidebarPath: './sidebars.ts',
