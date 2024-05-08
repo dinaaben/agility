@@ -153,4 +153,16 @@ const config: Config = {
   } satisfies Preset.ThemeConfig,
 };
 
-export default config;
+//export default config;
+
+export default {
+  plugins: [
+    [
+      'vercel-analytics',
+      {
+        debug: true,
+        mode: 'auto',
+      },
+    ],
+  ],
+};
