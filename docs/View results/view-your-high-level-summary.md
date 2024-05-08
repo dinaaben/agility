@@ -1,20 +1,6 @@
-# **View your High-Level Summary**
-- [The High-Level Summary](#viewyourhigh-levelsummary-thehigh-levelsummary) 
-  - [Network activity overview cards](#viewyourhigh-levelsummary-networkactivityoverviewcards) 
-    - [Network Slices](#viewyourhigh-levelsummary-networkslices)
-    - [Services](#viewyourhigh-levelsummary-services)
-    - [Network Functions](#viewyourhigh-levelsummary-networkfunctions)
-    - [Subscribers](#viewyourhigh-levelsummary-subscribers)
-    - [Call Flows](#viewyourhigh-levelsummary-callflows)
-  - [Network KPIs](#viewyourhigh-levelsummary-networkkpis)
-  - [Network activity overview graphs](#viewyourhigh-levelsummary-networkactivityoverviewgraphs) 
-    - [Network Slices Distribution](#viewyourhigh-levelsummary-networkslicesdistribution)
-    - [Subscribers Distribution](#viewyourhigh-levelsummary-subscribersdistribution)
-    - [Call Flow Distribution](#viewyourhigh-levelsummary-callflowdistribution)
-    - [Call Flow Distribution per Network Slice](#viewyourhigh-levelsummary-callflowdistributionpernetworkslice)
-    - [Call Flow Distribution per Service](#viewyourhigh-levelsummary-callflowdistributionperservice)
-    - [Network Functions responsible for Failures](#viewyourhigh-levelsummary-networkfunctionsresponsibleforfailures)
-# <a name="viewyourhigh-levelsummary-thehigh-levelsummary"></a>**The High-Level Summary** 
+# View your High-Level Summary
+
+## <a name="viewyourhigh-levelsummary-thehigh-levelsummary"></a>**The High-Level Summary** 
 The High-Level summary page is a gateway to in-depth Call Flow analyses.
 
 It provides key insights that help you:

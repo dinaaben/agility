@@ -48,7 +48,7 @@ add image
 | **Network Slice**                  | Enter the network slice. You can search by number.                                                                                                                                            |
 | **Network Functions with Failure** | Choose your network functions from the list.   |                                                                                                                                               |
 
-# Sort call flows
+## Sort call flows
 
 In addition to filtering, you can also sort your call flows by:
 

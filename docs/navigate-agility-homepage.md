@@ -10,15 +10,14 @@
 
 [insert image]
 
-# The AGILITY Homepage
+## The AGILITY Homepage
 
-Access AGILITY\'s capabilities and features from the Homepage.
+Access AGILITY's capabilities and features from the Homepage.
 
-## About the Homepage
 
 The Homepage provides quick access to start an analysis.
 
-AGILITY\'s features include:
+AGILITY's features include:
 
 -   Call flow visualization
 
@@ -40,7 +39,7 @@ To access any of AGILITY's capabilities:
 
 > [insert image]
 >
-> You\'ll be directed to the Explore AGILITY page.
+> You'll be directed to the Explore AGILITY page.
 >
 > [insert image]
 

@@ -21,7 +21,7 @@ matches and highlighting differences.
 
 Note: AGILITY currently supports VoLTE call flows for this feature.
 
-# Comparison uses
+## Comparison uses
 
 -   **System upgrades:** Comparative analysis in AGILITY can assist you
     during software and network upgrades. Creating a Reference set of
@@ -42,7 +42,7 @@ Note: AGILITY currently supports VoLTE call flows for this feature.
 
 You must create reference sets before you run a comparative analysis.
 
-# Create a Reference set
+## Create a Reference set
 
 1.  Choose an existing analysis or run a new one. See
     Add link
@@ -57,7 +57,7 @@ You must create reference sets before you run a comparative analysis.
 
 > The reference is added to the **Added as Reference** list.
 
-# Add call flows to your Reference set
+## Add call flows to your Reference set
 
 To add additional call flows to your Reference set:
 
@@ -75,7 +75,7 @@ To add additional call flows to your Reference set:
 
 4.  Click away from the Reference area to close the window.
 
-# Manage your references
+## Manage your references
 
 View and manage your references from the Reference page found in the
 main AGILITY menu.
@@ -95,7 +95,7 @@ main AGILITY menu.
 Note: You must have at least one call flow in your Reference set.
 Deleting all call flows will remove the Reference set.
 
-# Run a comparison
+## Run a comparison
 
 1.  Choose an existing analysis or run a new one. See
     Add link
@@ -111,7 +111,7 @@ Deleting all call flows will remove the Reference set.
     list.\
     AGILITY runs the comparison and displays the results.
 
-# Interpret your comparison results
+## Interpret your comparison results
 
 After your comparison runs, AGILITY displays the comparative analysis.
 

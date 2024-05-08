@@ -1,4 +1,4 @@
-# **Filter and sort analyses**
+# Filter and sort analyses
 [Filter Analyses](#filterandsortanalyses-filteranalyses)
 
 [Sort Analyses](#filterandsortanalyses-sortanalyses)
@@ -13,7 +13,7 @@ You can customize your analyses view by filtering by the following:
 - Subscriber
 - Network Slice
 - Network Functions with Failure
-# <a name="filterandsortanalyses-filteranalyses"></a>**Filter Analyses**
+## <a name="filterandsortanalyses-filteranalyses"></a>**Filter Analyses**
 1. Select **Analyses** from the navigation menu.
 1. In the Analyses list area, select the filter icon to open **Analysis Filters**.
 
@@ -47,7 +47,7 @@ The applied filters are shown at the top of the Summary area:
 To clear filters, select the “x” next to the one you want to clear, or select **Clear** to clear all filters.
 
 ![analyses-filter-clearFilters.png](Aspose.Words.b198dc76-a08e-4bd7-a279-a8b7a45f52f0.005.png) 
-# <a name="filterandsortanalyses-sortanalyses"></a>**Sort Analyses**
+## <a name="filterandsortanalyses-sortanalyses"></a>**Sort Analyses**
 In addition to filtering, you can also sort your analyses by:
 
 - Date

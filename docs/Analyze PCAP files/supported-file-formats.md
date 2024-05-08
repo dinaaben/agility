@@ -1,16 +1,16 @@
 # Supported file formats for network capture uploads
 
-# Maximum file upload size
+## Maximum file upload size
 
 The maximum allowable PCAP upload size on the Agility UI is 95 MB PCAP
 per analysis session.
 
-# Supported file formats
+## Supported file formats
 
 The support file formats for upload on AGILITY include pcap, .pcapng,
 .cap, .zip.
 
-# Supported browsers
+## Supported browsers
 
 For optimal performance, use AGILITY on the following browsers:
 

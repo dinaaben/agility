@@ -6,7 +6,7 @@ sidebar_position: 1
 # About AGILITY
 
 
-# What is AGILITY?
+## What is AGILITY?
 
 AGILITY uses Artificial Intelligence (AI) and Machine Learning (ML) to
 accelerate troubleshooting and validation processes by up to 80%.

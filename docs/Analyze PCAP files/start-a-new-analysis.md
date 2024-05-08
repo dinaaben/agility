@@ -10,7 +10,7 @@
 
     -   [Run Analysis](#Startanewanalysis-RunAnalysis)
 
-# Choose your network data capture files
+## Choose your network data capture files
 
 AGILITY analyzes the information from network data capture files (PCAPs
 (packet captures)) into actionable insights.
