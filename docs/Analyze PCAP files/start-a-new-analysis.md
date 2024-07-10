@@ -1,15 +1,5 @@
 # Start a new analysis
 
--   [Choose your network data capture
-    files](#Startanewanalysis-Upload-New-FilesChoos)
-
-    -   [Select your service](#Startanewanalysis-Selectyourservice)
-
-        -   [Service
-            Auto-Detection](#Startanewanalysis-ServiceAuto-Detection)
-
-    -   [Run Analysis](#Startanewanalysis-RunAnalysis)
-
 ## Choose your network data capture files
 
 AGILITY analyzes the information from network data capture files (PCAPs
@@ -30,7 +20,7 @@ The **Start a New Analysis** page opens.
 
 |||
 | :- | :- |
-|<p>**Upload New File**</p><p>AGILITY supports:</p><p>·       pcap</p><p>·       .pcapng</p><p>·       .cap</p><p>·       .zip</p><p>You can only upload one file at a time.</p>|<p>Upload a network data capture file:</p><p>1\.     You can upload a file to run an analysis on the New File Uploads page.</p><p>1\.     To upload a new network data capture file for analysis, click **New Upload**.</p><p> </p><p>2\.     Select **Browse** or drag and drop your files into the Upload File panel.</p><p> </p><p>Your file name will appear on the Upload File panel.</p>|
+|<p>**Upload New File**</p><p>AGILITY supports:</p><p>·       pcap</p><p>·       .pcapng</p><p>·       .cap</p><p>·       .zip</p><p>You can only upload one file at a time.</p>|<p>Upload a network data capture file:</p><p>1\.     To upload a new network data capture file for analysis, click **New Upload**.</p><p> </p><p>2\.     Select **Browse** or drag and drop your files into the Upload File panel.</p><p> </p><p>Your file name will appear on the Upload File panel.</p>|
 |**Select Existing File(s)**|<p>To use previously uploaded network data capture files:</p><p>1\.     Click **Select Existing File**.</p><p> </p><p>a) Search for the file by name.</p><p> </p><p>OR</p><p>b) Expand the folder and file drop-downs and choose the desired file.</p><p>**2**. Check the box beside the desired sample file to select it for analysis.</p>|
 |**Preview an Analysis**|<p>To run a mock analysis using a pre-uploaded sample file:</p><p>1\.     Click **Choose Sample**.</p><p> </p><p>2\.     Select your file:**a)** Search for the file by name.</p><p> </p><p>**b)** Expand the folder and file drop-downs to choose the desired file.</p><p> </p><p>3\.     Check the box beside the desired sample file to select it for analysis.</p>|
 
@@ -171,7 +161,7 @@ b) Expand the folder and file drop-downs and choose the desired file.
 
   </TabItem>
   <TabItem value="Preview an Analysis" label="Preview an Analysis">
-  
+
     To run an analysis using a pre-uploaded sample file: 
 
 Select **Choose Sample**.
@@ -199,7 +189,7 @@ Check the box beside the desired sample file to select it for analysis.
   </TabItem>
 </Tabs>
 
-## Select your service
+### Select your service
 
 You can select the service you wish to analyze. If you choose auto-detection, all services AGILITY is able to detect will be analyzed.
 
@@ -211,7 +201,7 @@ You can select the service you wish to analyze. If you choose auto-detection, al
 
 ![alt text](../img/service-type-list.png "Select files")
  
-### Service Auto-Detection
+#### Service Auto-Detection
 
 If you do not select a service, AGILITY Service-Auto-Detection automatically detects the service type affiliated with your file upload.
 
