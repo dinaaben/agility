@@ -111,7 +111,7 @@ To start a new analysis, you can upload your PCAP file, select a previously uplo
 
 The Start a New Analysis page opens.
 
-2. Choose you analysis path:
+2. Choose your analysis path:
 
 
 import Tabs from '@theme/Tabs';
@@ -148,6 +148,7 @@ Your file name will appear on the Upload File panel.
 
   </TabItem>
   <TabItem value="Select Existing File(s)" label="Select Existing File(s)">
+    
     To use previously uploaded network data capture files: 
 
 Choose **Select Existing File**.
@@ -170,6 +171,7 @@ b) Expand the folder and file drop-downs and choose the desired file.
 
   </TabItem>
   <TabItem value="Preview an Analysis" label="Preview an Analysis">
+  
     To run an analysis using a pre-uploaded sample file: 
 
 Select **Choose Sample**.
@@ -196,3 +198,40 @@ Check the box beside the desired sample file to select it for analysis.
 
   </TabItem>
 </Tabs>
+
+## Select your service
+
+You can select the service you wish to analyze. If you choose auto-detection, all services AGILITY is able to detect will be analyzed.
+
+1.	Expand the Service List drop-down list
+
+![alt text](../img/image-20230526-191952.png "Select files")
+ 
+2.	Select a service type(s) from the list and select Next.
+
+![alt text](../img/service-type-list.png "Select files")
+ 
+### Service Auto-Detection
+
+If you do not select a service, AGILITY Service-Auto-Detection automatically detects the service type affiliated with your file upload.
+
+## Run Analysis
+
+After your have selected your files and service, you are ready to analyze.
+
+1. Select **Run Analysis**. 
+
+![alt text](../img/image-20230526-193957.png "Run analysis")
+
+
+
+   Wait for the analysis to run. When the analysis is ready to view, the **Analyses** list will display the file name with the label *completed*.
+
+2. Select the analysis. 
+
+![alt text](../img/image-20230526-194310.png "Select filanalysis")
+
+
+  The High-Level Summary opens. 
+
+![alt text](../img/highlevelsummary.png "High-level summary")
