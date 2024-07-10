@@ -36,7 +36,8 @@ To start a new analysis, you can upload your PCAP file, select a previously uplo
 
 1. Select **Start a New Analysis** from the side navigation panel.
 
-![alt text](images/image-20230508-175214.png "Start a New Analysis")
+![alt text](../img/image-20230508-175214.png "Start a New Analysis")
+
 
 The Start a New Analysis page opens.
 
