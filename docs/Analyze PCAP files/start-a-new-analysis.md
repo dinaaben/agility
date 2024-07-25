@@ -1,3 +1,4 @@
+
 # Start a new analysis
 
 ## Choose your network data capture files
@@ -13,16 +14,83 @@ data capture file.
 MB PCAP per analysis session.
 
 1.  Select **Start a New Analysis** from the side navigation panel.
+  
+    ![alt text](../img/image-20230508-175214.png "Upload a New File")
 
-The **Start a New Analysis** page opens.
+    The **Start a New Analysis** page opens.
 
-1.  Choose your analysis path:
+2.  Choose your analysis path:
 
-|||
-| :- | :- |
-|<p>**Upload New File**</p><p>AGILITY supports:</p><p>·       pcap</p><p>·       .pcapng</p><p>·       .cap</p><p>·       .zip</p><p>You can only upload one file at a time.</p>|<p>Upload a network data capture file:</p><p>1\.     To upload a new network data capture file for analysis, click **New Upload**.</p><p> </p><p>2\.     Select **Browse** or drag and drop your files into the Upload File panel.</p><p> </p><p>Your file name will appear on the Upload File panel.</p>|
-|**Select Existing File(s)**|<p>To use previously uploaded network data capture files:</p><p>1\.     Click **Select Existing File**.</p><p> </p><p>a) Search for the file by name.</p><p> </p><p>OR</p><p>b) Expand the folder and file drop-downs and choose the desired file.</p><p>**2**. Check the box beside the desired sample file to select it for analysis.</p>|
-|**Preview an Analysis**|<p>To run a mock analysis using a pre-uploaded sample file:</p><p>1\.     Click **Choose Sample**.</p><p> </p><p>2\.     Select your file:**a)** Search for the file by name.</p><p> </p><p>**b)** Expand the folder and file drop-downs to choose the desired file.</p><p> </p><p>3\.     Check the box beside the desired sample file to select it for analysis.</p>|
+<Tabs>
+  <TabItem value="Upload New File" label="Upload New File" default>
+
+AGILITY supports:
+
+* pcap
+* .pcapng
+* .cap
+* .zip
+
+You can only upload one file at a time.
+
+1. To upload a new network data capture file for analysis, click **New Upload**.
+
+    ![alt text](../img/upload-new-file.png "Upload a New File")
+
+2. Select **Browse** or drag and drop your files into the Upload File panel.
+
+    ![alt text](../img/image-20230526-185219.png "Select your files")
+
+    Your file name will appear on the Upload File panel.
+
+    ![alt text](../img/image-20230526-191323.png "File panel")
+
+  </TabItem>
+  <TabItem value="Select Existing File(s)" label="Select Existing File(s)">
+
+To use previously uploaded network data capture files:
+
+1. Choose **Select Existing File**.
+
+    ![alt text](../img/image-20230530-141005.png "Select your files")
+
+    a) Search for the file by name.
+
+    ![alt text](../img/image-20230530-142857.png "Search for files")
+
+    OR
+
+    b) Expand the folder and file drop-downs and choose the desired file.
+
+2. Check the box beside the desired file to select it for analysis.
+
+    ![alt text](../img/image-20230530-144630.png "Select files")
+
+  </TabItem>
+  <TabItem value="Preview an Analysis" label="Preview an Analysis">
+
+To run an analysis using a pre-uploaded sample file:
+
+1. Select **Choose Sample**.
+
+    ![alt text](../img/image-20230508-182603.png "Select files")
+
+2. Select your file:
+
+    a) Search for the file by name.
+
+    ![alt text](../img/image-20230508-190237.png "Select files")
+
+    b) Expand the folder and file drop-downs to choose the desired file.
+
+    ![alt text](../img/image-20230508-190519.png "Select files")
+
+3. Check the box beside the desired sample file to select it for analysis.
+
+    ![alt text](../img/image-20230508-190645.png "Select files")
+
+  </TabItem>
+</Tabs>
 
 You'll be directed to the selected file upload page.
 
@@ -36,7 +104,7 @@ auto-detection, all services AGILITY is able to detect will be analyzed.
 
 2.  Select a service type from the list and select **Next**.
 
-The selected File(s) & Service(s) will be displayed.
+    The selected File(s) & Service(s) will be displayed.
 
 ### Service Auto-Detection
 
@@ -50,12 +118,12 @@ analyze.
 
 1.  Select **Run Analysis**.
 
-> Wait for the analysis to run. When the analysis is ready to view, the
-> Analyses list will display the file name with the label **completed**.
+     Wait for the analysis to run. When the analysis is ready to view, the
+Analyses list will display the file name with the label **completed**.
 
 2.  Select the analysis.
 
-The High-Level Summary opens.
+    The High-Level Summary opens.
 
  Next: [Access your
 analysis](https://d.docs.live.net/wiki/spaces/AKB1/pages/3037659168/Access+your+analyses).
@@ -96,10 +164,10 @@ To start a new analysis, you can upload your PCAP file, select a previously uplo
 
 1. Select **Start a New Analysis** from the side navigation panel.
 
-![alt text](../img/image-20230508-175214.png "Start a New Analysis")
+    ![alt text](../img/image-20230508-175214.png "Start a New Analysis")
 
 
-The Start a New Analysis page opens.
+    The Start a New Analysis page opens.
 
 2. Choose your analysis path:
 
@@ -122,18 +190,18 @@ You can only upload one file at a time.
 
 1. To upload a new network data capture file for analysis, click **New Upload**.
 
-![alt text](../img/upload-new-file.png "Upload a New File")
+    ![alt text](../img/upload-new-file.png  "Upload a New File")
 
 
-2. Select **Browse** or drag and drop your files into the Upload File panel. 
+1. Select **Browse** or drag and drop your files into the Upload File panel. 
 
 
-![alt text](../img/image-20230526-185219.png "Select your files")
+    ![alt text](../img/image-20230526-185219.png "Select your files")
 
 
-Your file name will appear on the Upload File panel.
+    Your file name will appear on the Upload File panel.
 
-![alt text](../img/image-20230526-191323.png "File panel")
+    ![alt text](../img/image-20230526-191323.png "File panel")
 
 
   </TabItem>
@@ -141,49 +209,49 @@ Your file name will appear on the Upload File panel.
     
     To use previously uploaded network data capture files: 
 
-Choose **Select Existing File**.
+1. Choose **Select Existing File**.
 
-![alt text](../img/image-20230530-141005.png "Select your files")
-
-
-a) Search for the file by name. 
-
-![alt text](../img/image-20230530-142857.png "Search for files")
+    ![alt text](../img/image-20230530-141005.png "Select your files")
 
 
-OR
+    a) Search for the file by name. 
 
-b) Expand the folder and file drop-downs and choose the desired file.
+    ![alt text](../img/image-20230530-142857.png "Search for files")
+
+
+    OR
+
+    b) Expand the folder and file drop-downs and choose the desired file.
 
 2. Check the box beside the desired file to select it for analysis. 
 
-![alt text](../img/image-20230530-144630.png "Select files")
+    ![alt text](../img/image-20230530-144630.png "Select files")
 
   </TabItem>
   <TabItem value="Preview an Analysis" label="Preview an Analysis">
 
     To run an analysis using a pre-uploaded sample file: 
 
-Select **Choose Sample**.
+1. Select **Choose Sample**.
 
-![alt text](../img/image-20230508-182603.png "Select files")
-
-
-Select your file:
-
-a) Search for the file by name. 
-
-![alt text](../img/image-20230508-190237.png "Select files")
+    ![alt text](../img/image-20230508-182603.png "Select files")
 
 
-b) Expand the folder and file drop-downs to choose the desired file.
+2. Select your file:
 
-![alt text](../img/image-20230508-190519.png "Select files")
+    a) Search for the file by name. 
+
+    ![alt text](../img/image-20230508-190237.png "Select files")
 
 
-Check the box beside the desired sample file to select it for analysis. 
+    b) Expand the folder and file drop-downs to choose the desired file.
 
-![alt text](../img/image-20230508-190645.png "Select files")
+    ![alt text](../img/image-20230508-190519.png "Select files")
+
+
+3. Check the box beside the desired sample file to select it for analysis. 
+
+    ![alt text](../img/image-20230508-190645.png "Select files")
 
 
   </TabItem>
@@ -195,11 +263,11 @@ You can select the service you wish to analyze. If you choose auto-detection, al
 
 1.	Expand the Service List drop-down list
 
-![alt text](../img/image-20230526-191952.png "Select files")
+    ![alt text](../img/image-20230526-191952.png "Select files")
  
 2.	Select a service type(s) from the list and select Next.
 
-![alt text](../img/service-type-list.png "Select files")
+    ![alt text](../img/service-type-list.png "Select files")
  
 #### Service Auto-Detection
 
@@ -211,7 +279,7 @@ After your have selected your files and service, you are ready to analyze.
 
 1. Select **Run Analysis**. 
 
-![alt text](../img/image-20230526-193957.png "Run analysis")
+    ![alt text](../img/image-20230526-193957.png "Run analysis")
 
 
 
@@ -219,9 +287,9 @@ After your have selected your files and service, you are ready to analyze.
 
 2. Select the analysis. 
 
-![alt text](../img/image-20230526-194310.png "Select filanalysis")
+    ![alt text](../img/image-20230526-194310.png "Select filanalysis")
 
 
-  The High-Level Summary opens. 
+    The High-Level Summary opens. 
 
-![alt text](../img/highlevelsummary.png "High-level summary")
+    ![alt text](../img/highlevelsummary.png "High-level summary")

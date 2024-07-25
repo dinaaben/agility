@@ -1,20 +1,45 @@
-import { themes as prismThemes } from 'prism-react-renderer';
-import type { Config } from '@docusaurus/types';
+import {themes as prismThemes} from 'prism-react-renderer';
+import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import { Plugin } from '@docusaurus/types';
+const openapiPlugin = require('docusaurus-plugin-openapi');
+
+module.exports = {
+  // ... other configurations ...
+
+  plugins: [
+    function openApiPlugin(context, options) {
+      return openapiPlugin(context, {
+        spec: './openapi.yaml', // Path to your OpenAPI file
+        routeBasePath: 'api', // Base path for API documentation
+      });
+    },
+  ],
+};
 
 const config: Config = {
   title: 'AGILITY',
   tagline: 'documentation',
-  url: 'https://dinaaben.github.io',
-  baseUrl: '/agility/',
   favicon: 'img/agility_icon.png',
 
-  organizationName: 'dinaaben', 
-  projectName: 'agility', 
+  // Set the production url of your site here
+  url: 'https://dinaaben.github.io',
+  // Set the /<baseUrl>/ pathname under which your site is served
+  // For GitHub pages deployment, it is often '/<projectName>/'
+  trailingSlash: false,
+  baseUrl: '/agility/',
+
+  // GitHub pages deployment config.
+  // If you aren't using GitHub pages, you don't need these.
+  organizationName: 'dinaaben', // Usually your GitHub org/user name.
+  projectName: 'agility', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
+  // Even if you don't use internationalization, you can use this field to set
+  // useful metadata like html lang. For example, if your site is Chinese, you
+  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -34,18 +59,28 @@ const config: Config = {
         docs: {
           path: 'docs',
           sidebarPath: './sidebars.ts',
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          //editUrl:
+            //'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
           customCss: './src/css/custom.css',
         },
-      },
+      } satisfies Preset.Options,
     ],
   ],
 
   themeConfig: {
+    
+    // Replace with your project's social card
     image: 'img/agility-icon.png',
     navbar: {
       title: 'AGILITY',
@@ -72,6 +107,8 @@ const config: Config = {
           position: 'left',
           label: 'Installation',
         },
+        
+        //{to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/facebook/docusaurus',
           label: 'GitHub',
@@ -128,7 +165,19 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
-  },
+  } satisfies Preset.ThemeConfig,
 };
 
 export default config;
+
+/*export default {
+  plugins: [
+    [
+      'vercel-analytics',
+      {
+        debug: true,
+        mode: 'auto',
+      },
+    ],
+  ],
+};*/
