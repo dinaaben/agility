@@ -49,13 +49,22 @@
   margin-right: 10px;
   padding-bottom: 10px;
   border-bottom: 2px solid transparent;
+  border-radius: 5px 5px 0 0; /* Add rounded corners to top */
 }
 
 .tabs > ul > li.active {
   border-bottom: 2px solid #337ab7;
+  background-color: #f7f7f7; /* Add background color to active tab */
+  border-radius: 5px 5px 0 0; /* Add rounded corners to top */
 }
 
 .tabs > ul > li > a {
   text-decoration: none;
   color: #337ab7;
+  padding: 10px 15px; /* Add padding to tab links */
+  border-radius: 5px 5px 0 0; /* Add rounded corners to top */
+}
+
+.tabs > ul > li > a:hover {
+  background-color: #f7f7f7; /* Add hover effect to tab links */
 }
