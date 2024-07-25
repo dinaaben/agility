@@ -1,0 +1,1885 @@
+
+openapi: 3.1.0
+info:
+  title: AGILITY API
+  description: >-
+    The AGILITY API is a RESTful interface specifically tailored for system integrators and developers. Its primary function is to facilitate the integration with the AGILITY platform.<br/>
+    The core objective of AGILITY is to perform advanced analysis on network traces. It specializes in delivering root cause analysis for the various call flows detected within these network traces.<br/><br/>
+    Currently, AGILITY is compatible with .PCAP, .PCAPNG, .CAP, and .ZIP file formats.<br/>
+    To retrieve the list of available services and their service keys, please refer to the <a href="#operations-Services-get_services_services_get">/v1/services</a> endpoint.
+  termsOfService: https://www.b-yond.com/byond-eula
+  version: "1"
+  x-logo:
+    url: "/cv/api/static/logo-black.png"
+
+externalDocs:
+  description: Find out more about Agility
+  url: https://nexiusocp.atlassian.net/wiki/spaces/AKB1/overview
+
+servers:
+  - url: /cv/api
+
+security:
+  - oAuth2Password:
+      - openid
+
+tags:
+  - name: Analysis
+    description: Analysis operations
+  - name: Callflows
+    description: Prediction feedback operations
+  - name: Labels
+    description: Label operations
+  - name: Services
+    description: Service Catalog operations
+  - name: Webhooks
+    description: Webhooks Notifications
+
+paths:
+  /v1/analysis/file:
+    post:
+      tags:
+        - Analysis
+      summary: Start a new Analysis
+      description: Starts an Analysis providing a supported network trace file. (.pcap, .pcapng, .cap, .zip)
+      operationId: start_analysis_with_new_file_analysis_file_post
+
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/StartAnalysisRequest"
+        required: true
+      responses:
+        "202":
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AnalysisStarted"
+        "422":
+          description: Invalid request or missing parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ClientError"
+        "470":
+          description: Invalid service key provided
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPError"
+
+  /v1/analysis:
+    get:
+      tags:
+        - Analysis
+      summary: Get all analyses
+      description: Return all analyses based on the filter criteria
+      operationId: get_all_analysis_analysis_get
+
+      parameters:
+        - name: datetimeRanges
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: string
+              - type: 'null'
+            title: Datetime ranges
+          description: >-
+            Accepts a few predefined datetime ranges. This should be passed as a comma separated list of values.<br>
+            <ul>
+              <li>today</li>
+              <li>thisWeek</li>
+              <li>thisMonth</li>
+              <li>yesterday</li>
+              <li>lastWeek</li>
+              <li>lastMonth</li>
+            </ul>
+        - name: datetimeFrom
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+            title: Datetime from
+          description: >-
+            Look for analyses created after the given datetime (UTC)<br>
+            Format: YYYY-MM-DDTHH:MM:SS
+        - name: datetimeTo
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+            title: Datetime to
+          description: >-
+            Look for analyses created before the given datetime (UTC)<br>
+            Format: YYYY-MM-DDTHH:MM:SS
+        - name: containsInFilePath
+          in: query
+          required: false
+          schema:
+            type: string
+            title: Contains in file path
+          description: >-
+            Look for analyses where the file path contains the given string
+        - required: false
+          schema:
+            type: string
+            title: Final Status
+          name: finalStatus
+          description: >-
+            Look for analyses by its final status. This should be passed as a comma separated list of values.<br>
+            <ul>
+              <li>success</li>
+              <li>failure</li>
+              <li>warning</li>
+              <li>processing</li>
+              <li>timeout</li>
+            </ul>
+          in: query
+        - required: false
+          schema:
+            type: string
+            title: Prediction Results
+          name: results
+          in: query
+          description: >-
+            Look for analyses where at least one of its callflow predictions matches the given results. This should be passed as a comma separated list of values.<br>
+            <ul>
+              <li>success</li>
+              <li>failure</li>
+              <li>warning</li>
+              <li>unknown</li>
+            </ul>
+        - name: serviceKeys
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: string
+              - type: 'null'
+            title: Service Keys
+          description: >-
+            Look for analyses where at least one of its service keys match the given values. This should be passed as a comma separated list of values.<br/>
+            Available values can be retrieved from the <a href="#operations-Services-get_services_services_get">/v1/services</a> endpoint.
+        - name: subscribers
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: string
+              - type: 'null'
+            title: Subscribers
+          description: >-
+            Look for analyses where at least one of its subscribers match the given values. This should be passed as a comma separated list of values.
+        - name: slices
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: string
+              - type: 'null'
+            title: Slices
+          description: >-
+            Look for analyses where at least one of its callflow's network slices match the given values. This should be passed as a comma separated list of values.
+        - name: failedNes
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: string
+              - type: 'null'
+            title: Failed NEs
+          description: >-
+            Look for analyses where at least one of its network elements were either involved in or the root cause of a failure. This should be passed as a comma separated list of values.
+        - name: orderBy
+          in: query
+          required: false
+          schema:
+            type: string
+            default: created_on
+            title: Order by
+          description: >-
+            Sort results by one of the following attributes: "created_on", "file_path" and "final_status".
+        - name: orderAsc
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: false
+            title: Ascending order
+          description: >-
+            Sort the results by created date in ascending order
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+            title: Page
+          description: Page number
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 50
+            title: Size
+          description: Page size
+      responses:
+        '200':
+          description: Successful response with a page of results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAnalysesResult'
+        '422':
+          description: One or more parameters are invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+
+  /v1/analysis/{analysis_id}/summary:
+    get:
+      tags:
+        - Analysis
+      summary: Get Analysis result
+      description: Return single Analysis with summary and its callflows paginated
+      operationId: get_analysis_summary_analysis__analysis_id__summary_get
+
+      parameters:
+        - name: analysis_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: Analysis Id
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+            title: Page
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            maximum: 100
+            minimum: 1
+            default: 50
+            title: Page size
+
+      responses:
+        "200":
+          description: Successful response with the analysis summary and its callflows
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AnalysisAggregate"
+        "422":
+          description: One or more parameters are invalid
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ClientError"
+
+  /v1/analysis/{analysis_id}/file:
+    get:
+      tags:
+        - Analysis
+      summary: Get Analysis File
+      description: Authenticated access to the original file that was used for the analysis
+      operationId: get_analysis_file_analysis__analysis_id__file_get
+      parameters:
+        - name: analysis_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: Analysis Id
+      responses:
+        '200':
+          description: File found
+          content:
+            application/octet-stream:
+              example: bytes stream
+        '410':
+          description: File not found or removed due to retention policy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+
+  /v1/callflows/similarity/feedbackTransaction:
+    get:
+      tags:
+        - Callflows
+      summary: Get All Feedback
+      description: Retrieve a list of previously submitted feedback transactions.
+      operationId: get_all_feedback_callflows_similarity_feedbackTransaction_get
+      parameters:
+        - name: analysisId
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: string
+              - type: 'null'
+            title: Analysis Id
+        - name: callflowKey
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: string
+              - type: 'null'
+            title: Callflow Key
+        - name: processed
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: boolean
+              - type: 'null'
+            title: Processed
+        - name: withAcceptedFeedback
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: boolean
+              - type: 'null'
+            title: With Accepted Feedback
+        - name: datetimeFrom
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: string
+                format: date-time
+              - type: 'null'
+            title: Datetime From
+            description: >-
+              Look for analyses created after the given datetime (UTC)<br>
+              Format: YYYY-MM-DDTHH:MM:SS
+        - name: datetimeTo
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: string
+                format: date-time
+              - type: 'null'
+            title: Datetime To
+            description: >-
+              Look for analyses created before the given datetime (UTC)<br>
+              Format: YYYY-MM-DDTHH:MM:SS
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/L1FeedbackTransaction'
+                title: The submitted feedback transaction
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+    post:
+      tags:
+        - Callflows
+      summary: Submit Feedback
+      description: Submit a feedback for a batch of calllflows of an analysis.
+      operationId: submit_feedback_callflows_similarity_feedbackTransaction_post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/L1FeedbackTransactionInput'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: string
+                title: Generated feedback transaction Id
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+
+  /v1/callflows/similarity/feedbackTransaction/{feedback_id}:
+    get:
+      tags:
+        - Callflows
+      summary: Get Feedback
+      description: Retrieve a previously submited feedback transaction.
+      operationId: get_feedback_callflows_similarity_feedbackTransaction__feedback_id__get
+      parameters:
+        - name: feedback_id
+          in: path
+          required: true
+          schema:
+            type: string
+            title: Feedback Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/L1FeedbackTransaction'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+
+  /v1/services:
+      get:
+        tags:
+          - Services
+        summary: Get service list
+        description: Returns the list of supported services
+        operationId: get_services_services_get
+
+        parameters:
+          - name: page
+            in: query
+            required: false
+            schema:
+              type: integer
+              minimum: 1
+              default: 1
+              title: Page
+          - name: size
+            required: false
+            in: query
+            schema:
+              type: integer
+              maximum: 100
+              minimum: 1
+              default: 50
+              title: Page size
+        responses:
+          "200":
+            description: Successful Response
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/ListServicesResult"
+          "422":
+            description: Bad pagination parameters
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/ClientError"
+
+  /v1/labels:
+    get:
+      tags:
+        - Labels
+      summary: Get Labels
+      description: Return the list of available labels for a callflow
+      operationId: get_labels_labels_get
+      parameters:
+        - name: analysisId
+          in: query
+          required: true
+          schema:
+            type: string
+            title: Analysis Id
+        - name: callflowKey
+          in: query
+          required: true
+          schema:
+            type: string
+            title: Callflow Key
+        - name: featureType
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - $ref: '#/components/schemas/LabelFeatureTypeEnum'
+              - type: 'null'
+            title: Feature Type
+        - name: frameNumber
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: integer
+              - type: 'null'
+            title: Frame Number
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Label'
+                title: List of labels for the callflow
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+
+  /v1/webhooks:
+    post:
+      tags:
+        - Webhooks
+      summary: Register Webhook
+      description: Webhook registration endpoint
+      operationId: register_webhook_webhooks_post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookSubscriptionInput'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSubscription'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+
+    get:
+      tags:
+        - Webhooks
+      summary: Get All Subscriptions
+      description: Return all Webhooks subscriptions based on filter criteria
+      operationId: get_all_subscriptions_webhooks_get
+      parameters:
+        - name: listAll
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: false
+            title: List all
+        - name: filterEnabled
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: false
+            title: Filter enabled
+        - name: orderAsc
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: false
+            title: Order asc
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            description: Page number
+            default: 1
+            title: Page
+          description: Page number
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            maximum: 100
+            minimum: 1
+            description: Page size
+            default: 50
+            title: Size
+          description: Page size
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page_WebhookSubscription_'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+
+  /v1/webhooks/{subscription_id}:
+    get:
+      tags:
+        - Webhooks
+      summary: Get Subscription By Id
+      description: Get webhook subscription by id
+      operationId: get_subscription_by_id_webhooks__subscription_id__get
+      parameters:
+        - name: subscription_id
+          in: path
+          required: true
+          schema:
+            type: string
+            title: Subscription Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSubscription'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+
+    put:
+      tags:
+        - Webhooks
+      summary: Update Subscription
+      description: Update webhook subscription
+      operationId: update_subscription_webhooks__subscription_id__put
+      parameters:
+        - name: subscription_id
+          in: path
+          required: true
+          schema:
+            type: string
+            title: Subscription Id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookSubscriptionInput'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSubscription'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+
+    delete:
+      tags:
+        - Webhooks
+      summary: Delete Subscription
+      description: Delete webhook subscription
+      operationId: delete_subscription_webhooks__subscription_id__delete
+      parameters:
+        - name: subscription_id
+          in: path
+          required: true
+          schema:
+            type: string
+            title: Subscription Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+
+  /v1/webhooks/{subscription_id}/roll-secret:
+    put:
+      tags:
+        - Webhooks
+      summary: Roll Secret Subscription
+      description: Roll signing secrets
+      operationId: >-
+        roll_secret_subscription_webhooks__subscription_id__roll_secret_put
+      parameters:
+        - name: subscription_id
+          in: path
+          required: true
+          schema:
+            type: string
+            title: Subscription Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSubscription'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+
+  /v1/webhooks/test:
+    post:
+      tags:
+        - Webhooks
+      summary: Check Subscription Url
+      description: Test webhook URL access
+      operationId: check_subscription_url_webhooks_test_post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: string
+              format: uri
+              minLength: 1
+              title: Url
+      responses:
+        '200':
+          description: Webhook URL was reached successfully
+          content:
+            text/plain:
+              schema:
+                type: string
+        '400':
+          description: 'Invalid URL: "http://example.com/" - Response Status: 404'
+          content:
+            application/json:
+              example:
+                detail: 'Invalid URL: "http://example.com/" - Response Status: 404'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+
+  /v1/webhooks/{subscription_id}/failures:
+    get:
+      tags:
+        - Webhooks
+      summary: Get Webhook Failure Log
+      description: Get failures logs for a given webhook subscription
+      operationId: >-
+        get_webhook_failure_log_webhooks__subscription_id__failures_get
+      parameters:
+        - name: subscription_id
+          in: path
+          required: true
+          schema:
+            type: string
+            title: Subscription Id
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            description: Page number
+            default: 1
+            title: Page
+          description: Page number
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            maximum: 100
+            minimum: 1
+            description: Page size
+            default: 50
+            title: Size
+          description: Page size
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page_WebhookFailureLog_'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientError'
+
+components:
+  securitySchemes:
+    oAuth2Password:
+      type: oauth2
+      x-tokenName: id_token
+      description: >-
+        OAuth2 Password Flow
+        Public **client_id** = `d0d8b0d806f9`
+        See https://developers.getbase.com/docs/rest/articles/oauth2/requests for more info
+      flows:
+        password:
+          tokenUrl: /cv/auth/realms/agility/protocol/openid-connect/token
+          scopes:
+            openid: OpenID Connect scope, required for to get id_token
+
+  schemas:
+    ListServicesResult:
+      title: Page of Services
+      required:
+        - items
+        - total
+        - page
+        - size
+      type: object
+      properties:
+        items:
+          items:
+            $ref: "#/components/schemas/Services"
+          type: array
+          title: Items
+        total:
+          type: integer
+          minimum: 0
+          title: Total
+        page:
+          type: integer
+          minimum: 1
+          title: Page
+        size:
+          type: integer
+          minimum: 1
+          title: Page size
+        pages:
+          type: integer
+          minimum: 0
+          title: Pages
+
+    Services:
+      title: Services
+      required:
+        - service_key
+      type: object
+      properties:
+        service_key:
+          type: string
+          title: Service Key
+        service_name:
+          type: string
+          title: Service Name
+        description:
+          type: string
+          title: Description
+
+    AnalysisAggregate:
+      title: Analysis Aggregated Results
+      required:
+        - callflows
+      type: object
+      properties:
+        analysis_id:
+          type: string
+          format: uuid
+          title: Analysis Id
+        service_keys:
+          type: string
+          title: Service Keys
+        file_path:
+          type: string
+          title: File Path
+        user_id:
+          type: string
+          title: User Id
+        final_status:
+          type: string
+          title: Final Status
+        final_status_ts:
+          type: string
+          format: date-time
+          title: Final Status Timestamp (UTC)
+        error_message:
+          type: string
+          format: date-time
+          title: Error Message
+        created_on:
+          type: string
+          format: date-time
+          title: Created On (UTC)
+        updated_on:
+          type: string
+          format: date-time
+          title: Updated On (UTC)
+        summary:
+          $ref: "#/components/schemas/AnalysisSummary"
+        callflows:
+          $ref: "#/components/schemas/ListCallflowsResult"
+
+    AnalysisStarted:
+      title: Analysis Started
+      required:
+        - analysisId
+      type: object
+      properties:
+        analysisId:
+          type: string
+          format: uuid
+          title: Analysis Id
+        startDatetime:
+          type: string
+          format: date-time
+          title: Start Date Time (UTC)
+
+    AnalysisSummary:
+      title: Analysis Summary
+      type: object
+      properties:
+        count_callflows:
+          type: integer
+          title: Count Callflows
+        count_results:
+          type: integer
+          title: Count Results
+        unique_service:
+          type: integer
+          title: Unique Service
+        unique_nes:
+          type: integer
+          title: Unique Network Elements
+        unique_protocols:
+          type: integer
+          title: Unique Protocols
+        unique_procedures:
+          type: integer
+          title: Unique Procedures
+        count_prediction_success:
+          type: integer
+          title: Count Prediction Success
+        count_prediction_failure:
+          type: integer
+          title: Count Prediction Failure
+        count_prediction_warning:
+          type: integer
+          title: Count Prediction Warning
+        count_prediction_unknown:
+          type: integer
+          title: Count Prediction Unknown
+        analyzed_file_paths:
+          type: array
+          items:
+            type: string
+          title: Analyzed File Paths
+        no_callflow_file_paths:
+          type: array
+          items:
+            type: string
+          title: No Callflow File Paths
+        warning_message:
+          type: string
+          title: Warning Message
+        subscriber_summary:
+          type: array
+          items:
+            $ref: "#/components/schemas/SubscriberSummary"
+          title: Imsi Summary
+        callflow_summary:
+          type: array
+          items:
+            $ref: "#/components/schemas/CallflowSummary"
+          title: Callflow Summary
+        network_slice_summary:
+          type: array
+          items:
+            $ref: '#/components/schemas/SliceSummary'
+          title: Network Slice Summary
+        network_function_summary:
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkFunctionSummary'
+          title: Network Function Summary
+        network_function_responsible_for_failure_summary:
+          type: array
+          items:
+            $ref: '#/components/schemas/FailedNetworkFunctionSummary'
+          title: Failed Network Function Summary
+
+    StartAnalysisRequest:
+      required:
+        - uploadFile
+      type: object
+      properties:
+        uploadFile:
+          type: string
+          format: binary
+          title: Upload File
+        serviceKeys:
+          type: array
+          items:
+            type: string
+          title: Service Keys
+          description: >-
+            List of service keys to be used for the analysis, leave it empty to enable service auto-discovery.<br/>
+            Available values can be retrieved from the <a href="#operations-Services-get_services_services_get">/v1/services</a> endpoint.
+
+    Callflow:
+      title: Callflow
+      required:
+        - callflow_key
+        - analysis_id
+        - callflow_id
+        - service_key
+      type: object
+      properties:
+        callflow_key:
+          type: string
+          title: Callflow Key
+        analysis_id:
+          type: string
+          format: uuid
+          title: Analysis Id
+        callflow_id:
+          type: string
+          title: Callflow Id
+        service_key:
+          type: string
+          title: Service Key
+        file_path:
+          type: string
+          title: File Path
+        chunk_name:
+          type: string
+          title: Chunk Name
+        msisdn:
+          type: string
+          title: MSISDN
+        imsi:
+          type: string
+          title: IMSI
+        slice_id:
+          type: array
+          items:
+            type: string
+          title: Slice Id
+        device:
+          type: string
+          title: Device
+        start_time:
+          type: string
+          format: date-time
+          title: Start Time (UTC)
+        call_duration:
+          type: number
+          title: Call Duration
+        call_setup_time:
+          type: number
+          title: Call Setup Time
+        call_lag:
+          type: number
+          title: Call Lag
+        device_time_for_session_establishment:
+          type: number
+          title: Device Time For Session Establishment
+        device_time_to_registration:
+          type: number
+          title: Device Time To Registration
+        prediction_result:
+          type: string
+          title: Prediction Result
+        prediction_label:
+          type: string
+          title: Prediction Label
+        prediction_probability:
+          type: number
+          title: Prediction Probability
+        kpis:
+          type: array
+          items:
+            $ref: "#/components/schemas/Kpi"
+          title: List of KPIs
+
+    Kpi:
+      title: KPI
+      required:
+        - name
+        - unit
+      type: object
+      properties:
+        name:
+          type: string
+          title: Name of the KPI
+        value:
+          type: number
+          title: Measured value
+        unit:
+          type: string
+          title: Unit for this measurement
+
+    CallflowSummary:
+      title: Callflow Summary
+      type: object
+      properties:
+        prediction_result:
+          type: string
+          title: Prediction Result
+        callflows_detected:
+          type: string
+          title: Callflows Detected
+        service_name:
+          type: string
+          title: Service Name
+
+    SliceSummary:
+      title: SliceSummary
+      type: object
+      properties:
+        network_slice:
+          title: Network Slice
+          type: string
+        callflows_detected:
+          title: Callflows Detected
+          type: string
+
+    NetworkFunctionSummary:
+      title: NetworkFunctionSummary
+      type: object
+      properties:
+        network_function:
+          title: Network Function
+          type: string
+        callflows_detected:
+          title: Callflows Detected
+          type: string
+
+    FailedNetworkFunctionSummary:
+      title: FailedNetworkFunctionSummary
+      type: object
+      properties:
+        failed_network_function:
+          title: Failed Network Function
+          type: string
+        callflows_detected:
+          title: Callflows Detected
+          type: string
+
+    SubscriberSummary:
+      title: Subscriber Summary
+      type: object
+      properties:
+        subscriber_status:
+          type: string
+          title: Subscriber Status
+        callflows_detected:
+          type: string
+          title: Subscribers Detected
+
+    Analysis:
+      title: Analysis
+      required:
+        - analysis_id
+        - file_path
+        - user_id
+      type: object
+      properties:
+        analysis_id:
+          type: string
+          format: uuid
+          title: Analysis Id
+        service_keys:
+          type: string
+          title: Service Keys
+        file_path:
+          type: string
+          title: File Path
+        user_id:
+          type: string
+          title: User Id
+        final_status:
+          type: string
+          title: Final Status
+        final_status_ts:
+          type: string
+          format: date-time
+          title: Final Status Timestamp (UTC)
+        error_message:
+          type: string
+          title: Error Message
+        count_callflows:
+          type: integer
+          title: Count Callflows
+        count_results:
+          type: integer
+          title: Count Results
+        unique_service:
+          type: integer
+          title: Unique Service
+        unique_nes:
+          type: integer
+          title: Unique Nes
+        unique_protocols:
+          type: integer
+          title: Unique Protocols
+        unique_procedures:
+          type: integer
+          title: Unique Procedures
+        count_prediction_success:
+          type: integer
+          title: Count Prediction Success
+        count_prediction_failure:
+          type: integer
+          title: Count Prediction Failure
+        count_prediction_warning:
+          type: integer
+          title: Count Prediction Warning
+        count_prediction_unknown:
+          type: integer
+          title: Count Prediction Unknown
+        created_on:
+          type: string
+          format: date-time
+          title: Created On (UTC)
+        updated_on:
+          type: string
+          format: date-time
+          title: Updated On (UTC)
+        analyzed_file_paths:
+          type: array
+          items:
+            type: string
+          title: Analyzed File Paths
+        no_callflow_file_paths:
+          type: array
+          items:
+            type: string
+          title: No Callflow File Paths
+        warning_message:
+          type: string
+          title: Warning Message
+
+    ListAnalysesResult:
+      title: Page of Analyses
+      required:
+        - items
+        - total
+        - page
+        - size
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Analysis'
+          title: Items
+        total:
+          type: integer
+          minimum: 0
+          title: Total
+        page:
+          type: integer
+          minimum: 1
+          title: Page
+        size:
+          type: integer
+          minimum: 1
+          title: Page size
+        pages:
+          type: integer
+          minimum: 0
+          title: Pages
+
+    FinalStatusFilter:
+      title: FinalStatusFilter
+      enum:
+        - success
+        - failure
+        - warning
+        - processing
+      type: string
+      description: Filter values for final status.
+
+    ResultFilter:
+      title: ResultFilter
+      enum:
+        - success
+        - failure
+        - warning
+        - unknown
+      type: string
+      description: Filter values for prediction results.
+
+    ListCallflowsResult:
+      title: Page of Callflows
+      required:
+        - items
+        - total
+        - page
+        - size
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Callflow"
+          title: Items
+        total:
+          type: integer
+          minimum: 0
+          title: Total
+        page:
+          type: integer
+          minimum: 1
+          title: Page
+        size:
+          type: integer
+          minimum: 1
+          title: Page size
+        pages:
+          type: integer
+          minimum: 0
+          title: Pages
+
+    L1CallflowFeedback-Input:
+      properties:
+        callflow_key:
+          type: string
+          title: Callflow Key
+        positive:
+          type: boolean
+          title: Positive
+        frame_number:
+          anyOf:
+            - type: integer
+            - type: 'null'
+          title: Frame Number
+        feature_type:
+          anyOf:
+            - $ref: '#/components/schemas/L1FeedbackFeatureTypeEnum'
+            - type: 'null'
+        valid:
+          anyOf:
+            - type: boolean
+            - type: 'null'
+          title: Valid
+        reason_invalid:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Reason Invalid
+        comment:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Comment
+        label:
+          anyOf:
+            - $ref: '#/components/schemas/L1FeedbackLabel'
+            - type: 'null'
+      type: object
+      required:
+        - callflow_key
+        - positive
+      title: Callflow Similarity Feedback Input
+
+    L1CallflowFeedback-Output:
+      properties:
+        callflow_key:
+          type: string
+          title: Callflow Key
+        positive:
+          type: boolean
+          title: Positive
+        frame_number:
+          anyOf:
+            - type: integer
+            - type: 'null'
+          title: Frame Number
+        feature_type:
+          anyOf:
+            - $ref: '#/components/schemas/L1FeedbackFeatureTypeEnum'
+            - type: 'null'
+        valid:
+          anyOf:
+            - type: boolean
+            - type: 'null'
+          title: Valid
+        reason_invalid:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Reason Invalid
+        comment:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Comment
+        label:
+          anyOf:
+            - $ref: '#/components/schemas/L1FeedbackLabel'
+            - type: 'null'
+      type: object
+      required:
+        - callflow_key
+        - positive
+      title: Callflow Similarity Feedback
+
+    L1FeedbackFeatureTypeEnum:
+      type: string
+      enum:
+        - error
+        - failure indication
+        - missing message
+        - other
+      title: Feedback Feature Type Enum
+
+    L1FeedbackLabel:
+      properties:
+        category:
+          $ref: '#/components/schemas/L1FeedbackLabelCategoryEnum'
+        error_code:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Error Code
+        protocol:
+          type: string
+          title: Protocol
+        description:
+          type: string
+          title: Description
+        src_ne:
+          type: string
+          title: Src Ne
+        dst_ne:
+          type: string
+          title: Dst Ne
+        prediction_label:
+          type: string
+          title: Prediction Label
+      type: object
+      required:
+        - category
+        - protocol
+        - description
+        - src_ne
+        - dst_ne
+        - prediction_label
+      title: Prediction Feedback Label
+
+    L1FeedbackLabelCategoryEnum:
+      type: string
+      enum:
+        - success
+        - failure
+        - warning
+      title: Prediction Feedback Label Category
+
+    L1FeedbackTransaction:
+      properties:
+        feedback_transaction_id:
+          type: string
+          title: Feedback Transaction Id
+        analysis_id:
+          type: string
+          title: Analysis Id
+        callflows:
+          items:
+            $ref: '#/components/schemas/L1CallflowFeedback-Output'
+          type: array
+          title: Callflows
+      type: object
+      required:
+        - feedback_transaction_id
+        - analysis_id
+        - callflows
+      title: Prediction Feedback Transaction
+
+    L1FeedbackTransactionInput:
+      properties:
+        analysis_id:
+          type: string
+          title: Analysis Id
+        callflows:
+          items:
+            $ref: '#/components/schemas/L1CallflowFeedback-Input'
+          type: array
+          title: Callflows
+      type: object
+      required:
+        - analysis_id
+        - callflows
+      title: Prediction Feedback Transaction Input
+
+    Label:
+      properties:
+        error_code:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Error Code
+        protocol:
+          type: string
+          title: Protocol
+        description:
+          type: string
+          title: Description
+        src_ne:
+          type: string
+          title: Src Ne
+        dst_ne:
+          type: string
+          title: Dst Ne
+        prediction_label:
+          type: string
+          title: Prediction Label
+        frame_number:
+          type: integer
+          title: Frame Number
+      type: object
+      required:
+        - protocol
+        - description
+        - src_ne
+        - dst_ne
+        - prediction_label
+        - frame_number
+      title: Prediction Label
+
+    LabelFeatureTypeEnum:
+      type: string
+      enum:
+        - error
+        - failure indication
+        - missing message
+      title: Prediction Label Feature Type Enum
+
+    Page_WebhookFailureLog_:
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/WebhookFailureLog'
+          type: array
+          title: Items
+        total:
+          type: integer
+          minimum: 0
+
+        page:
+          type: integer
+          minimum: 1
+          title: Page
+        size:
+          type: integer
+          minimum: 1
+          title: Size
+        pages:
+          type: integer
+          minimum: 0
+          title: Pages
+      type: object
+      required:
+        - items
+        - total
+        - page
+        - size
+      title: Page of Webhook Failure Logs
+
+    Page_WebhookSubscription_:
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/WebhookSubscription'
+          type: array
+          title: Items
+        total:
+          type: integer
+          minimum: 0
+          title: Total
+        page:
+          type: integer
+          minimum: 1
+          title: Page
+        size:
+          type: integer
+          minimum: 1
+          title: Size
+        pages:
+          type: integer
+          minimum: 0
+          title: Pages
+      type: object
+      required:
+        - items
+        - total
+        - page
+        - size
+      title: Page of Webhook Subscriptions
+
+    WebhookEvent:
+      type: string
+      enum:
+        - '*'
+        - analysis_done
+      title: WebhookEvent
+
+    WebhookFailureLog:
+      properties:
+        id:
+          type: string
+          format: uuid
+          title: Id
+        subscription_id:
+          type: string
+          format: uuid
+          title: Subscription Id
+        event_name:
+          type: string
+          title: Event Name
+        failure_reason:
+          type: string
+          title: Failure Reason
+        timestamp:
+          type: string
+          format: date-time
+          title: Timestamp
+        event_id:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Event Id
+      type: object
+      required:
+        - id
+        - subscription_id
+        - event_name
+        - failure_reason
+        - timestamp
+        - event_id
+      title: WebhookFailureLog
+
+    WebhookSubscription:
+      properties:
+        id:
+          type: string
+          format: uuid
+          title: Id
+        user_id:
+          type: string
+          title: User Id
+        url:
+          type: string
+          title: Url
+          description: URL of the webhook endpoint
+        events:
+          items:
+            type: string
+          type: array
+          title: Events
+          description: A list of events that the webhook should be triggered for
+        description:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Description
+          description: An optional description of what the webhook is used for
+        enabled:
+          anyOf:
+            - type: boolean
+            - type: 'null'
+          title: Enabled
+          description: >-
+            Whether the webhook is active or not, True for enabled, False for
+            disabled
+          default: true
+        subscribe_to_all_users:
+          anyOf:
+            - type: boolean
+            - type: 'null'
+          title: Subscribe To All Users
+          description: >-
+            Determine whether the subscription listens to events for all users
+            or just specific to the subscribing user
+          default: true
+        secret:
+          type: string
+          title: Secret
+          description: a secret key that is used to sign the webhook payload
+        created_on:
+          anyOf:
+            - type: string
+              format: date-time
+            - type: 'null'
+          title: Created On
+        updated_on:
+          anyOf:
+            - type: string
+              format: date-time
+            - type: 'null'
+          title: Updated On
+        last_successful_url:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Last Successful Url
+        last_successful_body:
+          anyOf:
+            - type: object
+            - items: {}
+              type: array
+            - type: 'null'
+          title: Last Successful Body
+        last_successful_headers:
+          anyOf:
+            - type: object
+            - items: {}
+              type: array
+            - type: 'null'
+          title: Last Successful Headers
+        last_successful_timestamp:
+          anyOf:
+            - type: string
+              format: date-time
+            - type: 'null'
+          title: Last Successful Timestamp
+      type: object
+      required:
+        - id
+        - user_id
+        - url
+        - events
+        - secret
+      title: Webhook Subscription
+
+    WebhookSubscriptionInput:
+      properties:
+        url:
+          type: string
+          title: Url
+          description: URL of the webhook endpoint
+        events:
+          items:
+            $ref: '#/components/schemas/WebhookEvent'
+          type: array
+          title: Events
+          description: A list of events that the webhook should be triggered for
+        description:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Description
+          description: An optional description of what the webhook is used for
+        enabled:
+          anyOf:
+            - type: boolean
+            - type: 'null'
+          title: Enabled
+          description: >-
+            Whether the webhook is active or not, True for enabled, False for
+            disabled
+          default: true
+        subscribe_to_all_users:
+          anyOf:
+            - type: boolean
+            - type: 'null'
+          title: Subscribe To All Users
+          description: >-
+            Determine whether the subscription listens to events for all users
+            or just specific to the subscribing user
+          default: true
+      type: object
+      required:
+        - url
+        - events
+      title: Webhook Subscription Input
+
+    HTTPError:
+      properties:
+        detail:
+          type: string
+          title: Detail
+          description: Error message
+          examples:
+            - Unexpected error occurred.
+      type: object
+      required:
+        - detail
+      title: HTTPError
+
+    ClientError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ClientErrorItem'
+          type: array
+          title: Detail
+          description: List of errors
+      type: object
+      required:
+        - detail
+      title: ClientError
+
+    ClientErrorItem:
+      properties:
+        loc:
+          items:
+            type: string
+          type: array
+          title: Loc
+          description: Location of the error
+          examples:
+            - - header
+              - userId
+        msg:
+          type: string
+          title: Msg
+          description: Error message
+          examples:
+            - field required
+        type:
+          type: string
+          title: Type
+          description: Error type
+          examples:
+            - missing
+      type: object
+      required:
+        - loc
+        - msg
+        - type
+      title: ClientErrorItem
