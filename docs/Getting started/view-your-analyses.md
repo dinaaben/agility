@@ -52,39 +52,27 @@ There are four file upload/processing statuses:
 
 <table>
   <tr>
-   <td><strong>Processing</strong>
-   </td>
-   <td>The file(s) is still being processed.
-   </td>
+    <td><strong>Processing</strong></td>
+    <td>The file(s) is still being processed.</td>
   </tr>
   <tr>
-   <td><strong>Completed</strong>
-   </td>
-   <td>Your file has been successfully processed and the analysis details are ready for your review.
-   </td>
+    <td><strong>Completed</strong></td>
+    <td>Your file has been successfully processed and the analysis details are ready for your review.</td>
   </tr>
   <tr>
-   <td><strong>Processing error</strong>
-   </td>
-   <td>AGILITY could not process your files due to file errors. The precise reason for each failure is provided in the UI. After reviewing the reason for the failure, you can determine how to re-upload your files and re-run the analysis. Processing errors include timeouts.
-   </td>
+    <td><strong>Processing error</strong></td>
+    <td>AGILITY could not process your files due to file errors. The precise reason for each failure is provided in the UI. After reviewing the reason for the failure, you can determine how to re-upload your files and re-run the analysis. Processing errors include timeouts.</td>
   </tr>
   <tr>
-   <td><strong>Completed with errors</strong>
-   </td>
-   <td>Something went wrong during file processing. For example:
-<ul>
-
-<li>A prediction script error on our end
-
-<li>Auto-detection detected the incorrect service
-
-<li>The user selected the incorrect service
-
-<li>We do not have a model that is compatible with the network captures that were uploaded
-</li>
-</ul>
-   </td>
+    <td><strong>Completed with errors</strong></td>
+    <td>Something went wrong during file processing. For example:
+      <ul>
+        <li>A prediction script error on our end</li>
+        <li>Auto-detection detected the incorrect service</li>
+        <li>The user selected the incorrect service</li>
+        <li>We do not have a model that is compatible with the network captures that were uploaded</li>
+      </ul>
+    </td>
   </tr>
 </table>
 
