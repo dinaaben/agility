@@ -72,7 +72,7 @@ There are four file upload/processing statuses:
         <li>The user selected the incorrect service</li>
         <li>We do not have a model that is compatible with the network captures that were uploaded</li>
       </ul>
-    </td>
+    </td> 
   </tr>
 </table>
 
