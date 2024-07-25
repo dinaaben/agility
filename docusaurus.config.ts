@@ -36,6 +36,7 @@ const config: Config = {
         docs: {
           path: 'docs',
           sidebarPath: './sidebars.ts',
+          docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
         },
         blog: {
           showReadingTime: true,
@@ -65,7 +66,7 @@ const config: Config = {
       },
     ]
   ],
-  
+
   themes: ["docusaurus-theme-openapi-docs"], // export theme components
 
 
